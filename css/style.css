@@ -2,7 +2,24 @@ h1 {
     color: #ff0000;
 }
 
+#title > img {
+    width: 25%;
+}
 
 .profile-img {
     width: 50%;
+}
+
+#unkoman {
+    position: relative;
+}
+
+#cup {
+    position: absolute;
+    left: 0px;
+    top: 130px;
+}
+
+.cup-img {
+    width: 25%;
 }

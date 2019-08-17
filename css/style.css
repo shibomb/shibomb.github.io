@@ -23,3 +23,48 @@ h1 {
 .cup-img {
     width: 25%;
 }
+
+body {
+    animation: fadeIn 2s ease 0s 1 normal;
+    -webkit-animation: fadeIn 2s ease 0s 1 normal;
+}
+
+@keyframes fadeIn {
+    0% {opacity: 0}
+    100% {opacity: 1}
+}
+
+@-webkit-keyframes fadeIn {
+    0% {opacity: 0}
+    100% {opacity: 1}
+}
+
+img {
+    transform: scale(1.0);
+    transition: 0.3s ease;
+}
+
+img:hover {
+    transform: scale(1.2);
+    transition: 0.3s ease;
+}
+
+#unkoman {
+    background: linear-gradient(45deg, #4b8f1b, #ad3141, #225ca7);
+    background-size: 600% 600%;
+    animation: BgAnimation 9s ease infinite;
+}
+
+@keyframes BgAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}

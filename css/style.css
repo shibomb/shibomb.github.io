@@ -68,3 +68,7 @@ img:hover {
         background-position: 0% 50%;
     }
 }
+
+#myname {
+    font-size: 5em;
+}

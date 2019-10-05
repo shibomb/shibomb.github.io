@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <title>Bootstrap</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  </head>
+  <body>
+    <header>
+        header
+    </header>
+
+<main role="main">
+
+  <section class="jumbotron text-center">
+    <div class="container">
+        jumbo
+
+        <div id="myname" style="font-size: 5em;">Hiroki Shibahara</div>
+
+
+    </div>
+  </section>
+
+  <div class="album py-5 bg-light">
+    <div class="container">
+
+      <div class="row">
+        <div class="col-md-12">
+          <input type="text" id="text" value=""/><br/>
+          <input type="password" id="password" value=""/><br/>
+          <input type="date" id="password" value=""/><br/>
+          <input type="radio" id="radio" name="example" value="選択肢1">選択肢1
+          <input type="radio" id="radio" name="example" value="選択肢2" checked>選択肢2<br/>
+          <input type="checkbox" id="check" name="example" value="選択肢1">選択肢1
+          <input type="checkbox" id="check" name="example" value="選択肢2" checked>選択肢2<br/>
+          <select id="select" name="example">
+              <option value="選択肢1">選択肢1</option>
+              <option value="選択肢2">選択肢2</option>
+              <option value="選択肢3">選択肢3</option>
+              </select><br/>
+          <textarea id="textarea" name="textarea" rows="10"></textarea><br/>
+          <button id="yesbtn">Yes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<footer class="text-muted">
+&copy; afafaf.
+</footer>
+
+
+<script type="text/javascript">
+console.log("test");
+let test = document.getElementById('myname');
+console.log(test);
+
+// innerHTML
+console.log(test.innerHTML);
+test.innerHTML = "shibomb";
+
+// style
+console.log(test.style);
+test.style.fontSize = "10em";
+
+// onclick
+test.onclick = function() {
+    alert("Clicked!");
+}
+
+// 2019/09/07
+let yesbtn = document.getElementById('yesbtn');
+yesbtn.onclick = function() {
+  let text = document.getElementById('text');
+
+  let test = document.getElementById('myname');
+  for(let i = 0; i < 10; i++) {
+    test.innerHTML += text.value;
+  }
+
+}
+</script>
+
+
+</html>
+
+

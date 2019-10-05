@@ -23,7 +23,7 @@ async function fetchWeather() {
 
     try {
         let cityId = "280010"
-        let url = `http://weather.livedoor.com/forecast/webservice/json/v1?city=${cityId}`
+        let url = `//weather.livedoor.com/forecast/webservice/json/v1?city=${cityId}`
         // let url = "./js/test/weather.json"
 
         const response = await fetch(url, {

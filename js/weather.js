@@ -22,9 +22,9 @@ async function fetchWeather() {
     // の結果jsonを、保存したものを取得するカタチにしています。
 
     try {
-        let cityId = "280010"
-        let url = `https://weather.livedoor.com/forecast/webservice/json/v1?city=${cityId}`
-        // let url = "./js/test/weather.json"
+        // let cityId = "280010"
+        // let url = `http://weather.livedoor.com/forecast/webservice/json/v1?city=${cityId}`
+        let url = "./js/test/weather.json"
 
         const response = await fetch(url, {
             method: 'GET'
@@ -63,23 +63,6 @@ function showWeatherError(e) {
 function showWeather(data) {
 
     // --------------------------------------------------
-    // createElementで動的生成する方法
-    // --------------------------------------------------
-    // メリット：この一連の処理の中で、JavaScriptのエレメントオブジェクトとして即座に参照できる。inputタグなどはこちらが良いかも。
-    // デメリット：HTMLデザイン通りに再現するときにめんどくさい
-    // --------------------------------------------------
-
-    // let output = document.getElementById('output')
-
-    // // 初期化するならば、内容を空にする
-    // output.innerHTML = ""
-
-    // let pre = document.createElement('pre')
-    // pre.innerHTML = JSON.stringify(data)
-    // output.appendChild(pre)
-
-
-    // --------------------------------------------------
     // テンプレートリテラル
     // --------------------------------------------------
     // メリット：HTMLデザイン通りに再現しやすい。表示のみのコンテンツだったら、こちらが良い。多くのフレームワークでも「テンプレート」で実装することが多い。
@@ -97,43 +80,44 @@ function showWeather(data) {
     let weather_forecasts = document.getElementById('weather_forecasts')
     weather_forecasts.innerHTML = ``
     for(let i = 0; i < data.forecasts.length; i++) {
+        console.log(data.forecasts[i])
         let item = data.forecasts[i]
+
         weather_forecasts.innerHTML += `
-        <div class="col-md-4">
-            <div class="row">
-                <div class="col-xs-12 mx-auto">
-                    <h2>${item.dateLabel}</h2>
-                    <p>${item.date}</p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-xs-12 mx-auto">
-                    <p>
-                        <img src="${item.image.url}" alt="${item.image.title}" />
-                    </p>
-                    <p>${item.telop}</p>
-                </div>
+    <div class="col-md-4">
+        <div class="row">
+            <div class="col-xs-12 mx-auto">
+                <h2>${item.dateLabel}</h2>
+                <p>${item.date}</p>
             </div>
         </div>
-    `
+        <div class="row">
+            <div class="col-xs-12 mx-auto">
+                <p>
+                    <img src="${item.image.url}" alt="${item.image.title}" />
+                </p>
+                <p>${item.telop}</p>
+            </div>
+        </div>
+    </div>
+        `
     }
 
     // ピンポイント天気リンク
     let weather_pinpointLocations = document.getElementById('weather_pinpointLocations')
     weather_pinpointLocations.innerHTML = ``
     for(let i = 0; i < data.pinpointLocations.length; i++) {
+        console.log(data.pinpointLocations[i])
         let item = data.pinpointLocations[i]
+
         weather_pinpointLocations.innerHTML += `
         <tr>
             <td>${item.name}</td>
             <td><a href="${item.link}" target="_black">リンク</a></td>
         </tr>
-    `
+        `
     }
+
     // 天気フッター
-    let weather_footer = document.getElementById('weather_footer')
-    weather_footer.innerHTML = `
-    Weather Data by <span>${data.copyright.title}</span>
-    `
 
 } 
